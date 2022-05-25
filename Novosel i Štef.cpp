@@ -148,6 +148,7 @@ bool checkDuplicates(int userticket[], int ticket, int i)
 
 int main()
 {
+
 	srand((unsigned int)time(NULL));
 
 	const int num = 7;
