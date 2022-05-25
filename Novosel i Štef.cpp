@@ -146,7 +146,6 @@ bool checkDuplicates(int userticket[], int ticket, int i)
 	return duplicate;
 }
 
-
 int main()
 {
 	srand((unsigned int)time(NULL));
