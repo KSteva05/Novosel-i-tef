@@ -13,19 +13,104 @@ void playerMenu();
 int checkMatches(int userTicket[], int winningNums[], int size);
 bool checkDuplicates(int userticket[], int size, int i);
 
+
+int main()
+{
+	srand((unsigned int)time(NULL));
+
+	const int num = 7;
+	int userTicket[num]; // array holds user picked numbers
+	int winningNums[num]; // array holds random winning numbers
+	int matchingNumbers = 0;
+	string name1;
+	char choice;
+
+	playerMenu();
+	cin >> choice;
+	cout << endl;
+	if(choice == '1')
+	{
+		cout << "Molim unesite Vase ime: ";
+		cin >> name1;
+		cout << endl;
+
+		getuserTicket(userTicket, num);
+		getwinningNumbers(winningNums, num);
+		cout << endl;
+		results(name1, userTicket, winningNums, num);
+
+	}
+	else if(choice == 'q' || choice == 'Q')
+	{
+		cout << "Izabrali ste izaci iz programa." << endl;
+	}
+	else if(choice != '1' || choice != 'q' || choice != 'Q')
+	{
+		cout << "Pogresan unos." << endl;
+	}
+
+	return 0;
+}
+
+/***************************************
+FUNCTION NAME: playerMenu
+
+INPUT:
+
+OUTPUT:
+
+DESCRIPTION:
+***************************************/
 void playerMenu()
 {
 	cout << "\nLITTLETON CITY LOTTO MODEL:" << endl
 		<< "---------------------------" << endl
 		<< "1) Igraj Lotto" << endl
 		<< "q) Izlaz iz programa" << endl
-		<< "Molim Vas odaberite jednu od navedenih opcija." << endl;
+		<< "Molim odaberite jednu od navedenih opcija." << endl;
 }
 
+/***************************************
+FUNCTION NAME: playAgain
+
+INPUT:
+
+OUTPUT:
+
+DESCRIPTION:
+***************************************/
+bool playAgain()
+{
+	char choice;
+	cout << " " << endl;
+	cout << "If you would like to play again press Y/y\n"
+		<< "otherwise press any key to exit the game" << endl;
+	cin >> choice;
+	if(choice == 'y' || choice == 'Y')
+	{
+		choice = true;
+	}
+	else
+		choice = false;
+
+	return choice;
+}
+
+/***************************************
+FUNCTION NAME: getuserTicket
+
+INPUT:
+
+OUTPUT:
+
+DESCRIPTION: Get user lotto numbers
+	between 1 and 40 with no duplicate
+	entries.
+***************************************/
 void getuserTicket(int userTicket[], int size)
 {
 	// Get user lotto numbers
-	cout << "Unesite sedam brojeva izmedu 1-40: " << endl;
+	cout << "Unesite 7 brojeva izmedu 1-40: " << endl;
 
 	//Loop to store 7 lotto numbers in array 
 	for(int i = 0; i < size; i++)
@@ -38,14 +123,14 @@ void getuserTicket(int userTicket[], int size)
 		{
 			if(userTicket[i] < 1 || userTicket[i] > 40)
 			{
-				cout << "Pogresan broj!" << endl;
-				cout << "Unesite broj izmedu 1 i 40: ";
+				cout << "Pogresan unos!" << endl;
+				cout << "Unesi broj izmedu 1 i 40: ";
 				cin >> userTicket[i];
 				//checks for duplicate numbers in array
 			}
 			if(checkDuplicates(userTicket, userTicket[i], i))
 			{
-				cout << "Vec ste unijeli taj broj, molim odaberite neki drugi broj: " << endl;
+				cout << "Vec ste unijeli taj broj, molim unesite drugi : " << endl;
 				cin >> userTicket[i];
 				cout << endl;
 			}
@@ -53,6 +138,15 @@ void getuserTicket(int userTicket[], int size)
 	}
 }
 
+/***************************************
+FUNCTION NAME: getuserTicket
+
+INPUT:
+
+OUTPUT:
+
+DESCRIPTION:
+***************************************/
 void getwinningNumbers(int winningNums[], int size)
 {
 	srand(time(0));
@@ -68,13 +162,23 @@ void getwinningNumbers(int winningNums[], int size)
 	}
 }
 
+
+/***************************************
+FUNCTION NAME: Results
+
+INPUT:
+
+OUTPUT:
+
+DESCRIPTION: displays lotto resluts
+***************************************/
 void results(string name, int userTicket[], int winningNums[], int size)
 {
 	int count = checkMatches(userTicket, winningNums, size);
-	cout << "" << name << " LOTTO REZULTATI" << endl;
+	cout << "" << name << " LOTTO REZULTATI:" << endl;
 	cout << "---------------------------" << endl;
 
-	cout << "DOBITNA KOMBINACIJA: ";
+	cout << "DOBITNI BROJEVI: ";
 	for(int i = 0; i < size; i++)
 	{
 		cout << " " << winningNums[i];
@@ -88,9 +192,9 @@ void results(string name, int userTicket[], int winningNums[], int size)
 	cout << endl << endl;
 	cout << "REZULTATI:" << endl;
 	cout << "--------" << endl;
-	cout << "Pogodeni brojevi: " << count << endl;
+	cout << "Broj pogodaka: " << count << endl;
 	cout << endl;
-	cout << "DOBITAK : ";
+	cout << "Dobitak : ";
 	switch(count)
 	{
 		case 1:
@@ -98,7 +202,7 @@ void results(string name, int userTicket[], int winningNums[], int size)
 			cout << "NISTA\n\n";
 			break;
 		case 3:
-			cout << "BESPLATNI LISTIC\n\n";
+			cout << "BESTPLATNI LISTIC\n\n";
 			break;
 		case 4:
 			cout << "NIJE LOSE - €100\n\n";
@@ -116,6 +220,17 @@ void results(string name, int userTicket[], int winningNums[], int size)
 	cout << endl;
 }
 
+/***************************************
+FUNCTION NAME: checkMatches
+
+INPUT:
+
+OUTPUT:
+
+DESCRIPTION: Compares user lotto numbers
+	to random generated numbers to see
+	how many matches there are.
+***************************************/
 int checkMatches(int userTicket[], int winningNums[], int size)
 {
 	int count = 0;
@@ -132,6 +247,16 @@ int checkMatches(int userTicket[], int winningNums[], int size)
 	return count;
 }
 
+/***************************************
+FUNCTION NAME: checkDuplicates
+
+INPUT:
+
+OUTPUT:
+
+DESCRIPTION: checks for duplicate
+	numbers.
+***************************************/
 bool checkDuplicates(int userticket[], int ticket, int i)
 {
 	bool duplicate = false;
@@ -145,9 +270,3 @@ bool checkDuplicates(int userticket[], int ticket, int i)
 	}
 	return duplicate;
 }
-
-
-int main()
-{
-    std::cout << "Hello World!\n";
-} niggeri
