@@ -67,7 +67,7 @@ void playerMenu()
 		<< "---------------------------" << endl
 		<< "1) Igraj Lotto" << endl
 		<< "q) Izlaz iz programa" << endl
-		<< "Molim odaberite jednu od navedenih opcija." << endl;
+		<< "Molim odaberite jednu od navedenih opcija" << endl;
 }
 
 /***************************************
