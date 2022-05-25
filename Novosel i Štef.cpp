@@ -146,41 +146,8 @@ bool checkDuplicates(int userticket[], int ticket, int i)
 	return duplicate;
 }
 
+
 int main()
 {
-
-	srand((unsigned int)time(NULL));
-
-	const int num = 7;
-	int userTicket[num]; // array holds user picked numbers
-	int winningNums[num]; // array holds random winning numbers
-	int matchingNumbers = 0;
-	string name1;
-	char choice;
-
-	playerMenu();
-	cin >> choice;
-	cout << endl;
-	if(choice == '1')
-	{
-		cout << "Unesite Vase ime: ";
-		cin >> name1;
-		cout << endl;
-
-		getuserTicket(userTicket, num);
-		getwinningNumbers(winningNums, num);
-		cout << endl;
-		results(name1, userTicket, winningNums, num);
-
-	}
-	else if(choice == 'q' || choice == 'Q')
-	{
-		cout << "Odabrali ste izaci iz programa" << endl;
-	}
-	else if(choice != '1' || choice != 'q' || choice != 'Q')
-	{
-		cout << "Pogresan unos!" << endl;
-	}
-
-	return 0;
-}
+    std::cout << "Hello World!\n";
+} niggeri
