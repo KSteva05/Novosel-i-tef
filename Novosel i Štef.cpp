@@ -71,7 +71,7 @@ void getwinningNumbers(int winningNums[], int size)
 void results(string name, int userTicket[], int winningNums[], int size)
 {
 	int count = checkMatches(userTicket, winningNums, size);
-	cout << "" << name << " LOTTO REZULTATI:" << endl;
+	cout << "" << name << " LOTTO REZULTATI" << endl;
 	cout << "---------------------------" << endl;
 
 	cout << "DOBITNA KOMBINACIJA: ";
