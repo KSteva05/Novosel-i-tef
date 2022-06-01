@@ -30,7 +30,7 @@ int main()
 	cout << endl;
 	if (choice == '1')
 	{
-		cout << "Molim unesite Vase ime: ";
+		cout << "Molim unesite Vase ime i prezime: ";
 		cin >> name1;
 		getline(cin, name1);
 		cout << endl;
@@ -53,15 +53,6 @@ int main()
 	return 0;
 }
 
-/***************************************
-FUNCTION NAME: playerMenu
-
-INPUT:
-
-OUTPUT:
-
-DESCRIPTION:
-***************************************/
 void playerMenu()
 {
 	cout << "\nLOTO 7:" << endl
@@ -71,15 +62,6 @@ void playerMenu()
 		<< "Molim odaberite jednu od navedenih opcija." << endl;
 }
 
-/***************************************
-FUNCTION NAME: playAgain
-
-INPUT:
-
-OUTPUT:
-
-DESCRIPTION:
-***************************************/
 bool playAgain()
 {
 	char choice;
@@ -97,17 +79,6 @@ bool playAgain()
 	return choice;
 }
 
-/***************************************
-FUNCTION NAME: getuserTicket
-
-INPUT:
-
-OUTPUT:
-
-DESCRIPTION: Get user lotto numbers
-	between 1 and 40 with no duplicate
-	entries.
-***************************************/
 void getuserTicket(int userTicket[], int size)
 {
 	// Get user lotto numbers
@@ -127,7 +98,6 @@ void getuserTicket(int userTicket[], int size)
 				cout << "Pogresan unos!" << endl;
 				cout << "Unesi broj izmedu 1 i 40: ";
 				cin >> userTicket[i];
-				//checks for duplicate numbers in array
 			}
 			if (checkDuplicates(userTicket, userTicket[i], i))
 			{
@@ -139,15 +109,6 @@ void getuserTicket(int userTicket[], int size)
 	}
 }
 
-/***************************************
-FUNCTION NAME: getuserTicket
-
-INPUT:
-
-OUTPUT:
-
-DESCRIPTION:
-***************************************/
 void getwinningNumbers(int winningNums[], int size)
 
 {
@@ -164,16 +125,6 @@ void getwinningNumbers(int winningNums[], int size)
 	}
 }
 
-
-/***************************************
-FUNCTION NAME: Results
-
-INPUT:
-
-OUTPUT:
-
-DESCRIPTION: displays lotto results
-***************************************/
 void results(string name, int userTicket[], int winningNums[], int size)
 {
 	int count = checkMatches(userTicket, winningNums, size);
@@ -199,9 +150,14 @@ void results(string name, int userTicket[], int winningNums[], int size)
 	cout << "Dobitak : ";
 	switch(count)
 	{
+		case 0: 
+			cout << "VISE SRECE DRUGI PUT\n\n";
+			break;
 		case 1:
-		case 2:
 			cout << "NISTA\n\n";
+			break;
+		case 2:
+			cout << "VISE OD NISTA, ALI IDALJE NISTA\n\n";
 			break;
 		case 3:
 			cout << "BESTPLATNI LISTIC\n\n";
@@ -222,17 +178,6 @@ void results(string name, int userTicket[], int winningNums[], int size)
 	cout << endl;
 }
 
-/***************************************
-FUNCTION NAME: checkMatches
-
-INPUT:
-
-OUTPUT:
-
-DESCRIPTION: Compares user lotto numbers
-	to random generated numbers to see
-	how many matches there are.
-***************************************/
 int checkMatches(int userTicket[], int winningNums[], int size)
 {
 	int count = 0;
@@ -251,16 +196,6 @@ int checkMatches(int userTicket[], int winningNums[], int size)
 	return count;
 }
 
-/***************************************
-FUNCTION NAME: checkDuplicates
-
-INPUT:
-
-OUTPUT:
-
-DESCRIPTION: checks for duplicate
-	numbers.
-***************************************/
 bool checkDuplicates(int userticket[], int ticket, int i)
 {
 	bool duplicate = false;
