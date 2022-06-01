@@ -237,11 +237,11 @@ int checkMatches(int userTicket[], int winningNums[], int size)
 
 	for(int i = 0; i < size; i++)
 	{
-		for(int j = 0; i < size; j++)
-			if(userTicket[i] == winningNums[j])
+		int temp = userTicket[i];
+
+		if(temp == winningNums[i])
 		{
 			count++;
-			break;
 		}
 	}
 	return count;
