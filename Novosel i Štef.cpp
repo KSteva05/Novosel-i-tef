@@ -32,6 +32,7 @@ int main()
 	{
 		cout << "Unesite svoje ime: ";
 		cin >> name1;
+		getline(cin, name1);
 		cout << endl;
 
 		getuserTicket(userTicket, num);
@@ -54,7 +55,7 @@ int main()
 
 void playerMenu()
 {
-	cout << "\nLITTLETON CITY LOTTO MODEL:" << endl
+	cout << "\nLOTO 7:" << endl
 		<< "---------------------------" << endl
 		<< "1) Igraj Lotto" << endl
 		<< "q) Izadi iz programa" << endl
@@ -81,7 +82,7 @@ bool playAgain()
 void getuserTicket(int userTicket[], int size)
 {
 	// Get user lotto numbers
-	cout << setw(55) << "Unesite sedam brojeva izmedu 1-40: " << endl;
+	cout << "Unesite sedam brojeva izmedu 1-40: " << endl;
 
 	//Loop to store 7 lotto numbers in array 
 	for (int i = 0; i < size; i++)
@@ -110,6 +111,7 @@ void getuserTicket(int userTicket[], int size)
 }
 
 void getwinningNumbers(int winningNums[], int size)
+
 {
 	srand(time(0));
 
@@ -150,6 +152,8 @@ void results(string name, int userTicket[], int winningNums[], int size)
 	switch (count)
 	{
 	case 1:
+		cout << "HAHAHA, NOOB";
+		break;
 	case 2:
 		cout << "NISTA\n\n";
 		break;
@@ -176,13 +180,15 @@ int checkMatches(int userTicket[], int winningNums[], int size)
 {
 	int count = 0;
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < 7; i++)
 	{
-		int temp = userTicket[i];
-
-		if (temp == winningNums[i])
+		for (int j = 0; j < 7; j++)
 		{
-			count++;
+			if (userTicket[i] == winningNums[j])
+			{
+				count++;
+				break;
+			}
 		}
 	}
 	return count;
