@@ -67,7 +67,7 @@ void playerMenu()
 		<< "---------------------------" << endl
 		<< "1) Igraj Lotto" << endl
 		<< "q) Izlaz iz programa" << endl
-		<< "Molim odaberite jednu od navedenih opcija" << endl;
+		<< "Molim odaberite jednu od navedenih opcija." << endl;
 }
 
 /***************************************
@@ -170,7 +170,7 @@ INPUT:
 
 OUTPUT:
 
-DESCRIPTION: displays lotto resluts
+DESCRIPTION: displays lotto results
 ***************************************/
 void results(string name, int userTicket[], int winningNums[], int size)
 {
@@ -205,16 +205,16 @@ void results(string name, int userTicket[], int winningNums[], int size)
 			cout << "BESTPLATNI LISTIC\n\n";
 			break;
 		case 4:
-			cout << "NIJE LOSE - €100\n\n";
+			cout << "NIJE LOSE - $100\n\n";
 			break;
 		case 5:
-			cout << "SRETNICE! - €5,000\n\n";
+			cout << "SRETNICE! - $5,000\n\n";
 			break;
 		case 6:
-			cout << "SUPER! - €100,000\n\n";
+			cout << "SUPER! - $100,000\n\n";
 			break;
 		case 7:
-			cout << "JACKPOT - €1,000,000\n\n";
+			cout << "JACKPOT - $1,000,000\n\n";
 			break;
 	}
 	cout << endl;
@@ -237,11 +237,11 @@ int checkMatches(int userTicket[], int winningNums[], int size)
 
 	for(int i = 0; i < size; i++)
 	{
-		int temp = userTicket[i];
-
-		if(temp == winningNums[i])
+		for(int j = 0; i < size; j++)
+			if(userTicket[i] == winningNums[j])
 		{
 			count++;
+			break;
 		}
 	}
 	return count;
