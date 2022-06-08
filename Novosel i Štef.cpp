@@ -160,7 +160,7 @@ void results(string name, int userTicket[], int winningNums[], int size)
 			cout << "VISE OD NISTA, ALI IDALJE NISTA\n\n";
 			break;
 		case 3:
-			cout << "BESTPLATNI LISTIC\n\n";
+			cout << "U REDU - $30\n\n";
 			break;
 		case 4:
 			cout << "NIJE LOSE - $100\n\n";
