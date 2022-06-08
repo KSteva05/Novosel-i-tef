@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -49,7 +50,6 @@ int main()
 	{
 		cout << "Pogresan unos." << endl;
 	}
-
 	return 0;
 }
 
@@ -148,36 +148,20 @@ void results(string name, int userTicket[], int winningNums[], int size)
 	cout << "Broj pogodaka: " << count << endl;
 	cout << endl;
 	cout << "Dobitak : ";
-	switch(count)
-	{
-		case 0: 
-			cout << "VISE SRECE DRUGI PUT\n\n";
-			break;
-		case 1:
-			cout << "NISTA\n\n";
-			break;
-		case 2:
-			cout << "VISE OD NISTA, ALI IDALJE NISTA\n\n";
-			break;
-		case 3:
-			cout << "U REDU - $30\n\n";
-			break;
-		case 4:
-			cout << "NIJE LOSE - $100\n\n";
-			break;
-		case 5:
-			cout << "SRETNICE! - $5,000\n\n";
-			break;
-		case 6:
-			cout << "SUPER! - $100,000\n\n";
-			break;
-		case 7:
-			cout << "JACKPOT - $1,000,000\n\n";
-			break;
-	}
-	cout << endl;
-}
 
+/*
+string p1,p2,p3,p4,p5,p6,p7;
+p1 = "VISE SRECE DRUGI PUT - 0$";
+p2 = "NISTA - 0$";
+p3 = "VISE OD NISTA, ALI IDALJE NISTA - 0$";
+p4 = "U REDU - 30$";
+p5 = "NIJE LOSE - 100$";
+p6 = "SRETNICE - 5,000$";
+p7 = "IZVRSNO - 100,000$";
+p8 = "JACKPOT - 1,000,000$";
+fstream file("nagrade.bin", ios::binary);
+
+*/
 int checkMatches(int userTicket[], int winningNums[], int size)
 {
 	int count = 0;
