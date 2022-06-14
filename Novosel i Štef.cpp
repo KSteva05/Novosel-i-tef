@@ -263,14 +263,15 @@ void playing(string name1, int userTicket[], int num, int winningNums[], int mat
 			cout << "Izabrali ste ucitat rezultat." << endl;
 			LoadingScore(NumberOfUsers);
 			for(int i = 0; i <= NumberOfUsers - 1; i++) {
-				cout << listofusers[i].name << " ";
+				cout << listofusers[i].name << "\t";
 				for(int j = 0; j < 7; j++) {
 					cout << listofusers[i].winningNums[j] << " ";
 				}
+				cout << "\t";
 				for(int j = 0; j < 7; j++) {
 					cout << listofusers[i].userTicket[j] << " ";
 				}
-				
+				cout << "\t";
 				cout << listofusers[i].matchingNumbers << " ";
 			cout << endl;
 			}
