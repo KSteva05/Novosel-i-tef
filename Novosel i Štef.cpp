@@ -62,16 +62,13 @@ void playerMenu()
 
 void getuserTicket(int userTicket[], int size)
 {
-	// Get user lotto numbers
-	cout << "Unesite 7 brojeva izmedu 1-40: " << endl;
-
-	//Loop to store 7 lotto numbers in array 
+	cout << " unesite 7 brojeva izmedu 1-40: " << endl;
+ 
 	for (int i = 0; i < size; i++)
 	{
 		cout << "odabir # " << i + 1 << ": ";
 		cin >> userTicket[i];
 
-		//Loop if user enters invalid numbers
 		while (checkDuplicates(userTicket, userTicket[i], i) || userTicket[i] < 1 || userTicket[i] > 40)
 		{
 			if (userTicket[i] < 1 || userTicket[i] > 40)
@@ -232,7 +229,7 @@ void LoadingScore(int &NumberOfUsers) {
 
 void playing(string name1, int userTicket[], int num, int winningNums[], int matchingNumbers, int NumberOfUsers) {
 	while(true) {
-		//system("cls");	
+		system("cls");	
 		char choice;
 		playerMenu();
 		cin >> choice;
