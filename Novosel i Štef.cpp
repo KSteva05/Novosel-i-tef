@@ -44,8 +44,9 @@ int main()
 	int winningNums[num]; // array holds random winning numbers
 	int matchingNumbers = 0;
 	int NumberOfUsers = 0;
+	int pare = 0;
 	string name1;
-	playing(name1, userTicket, num, winningNums, matchingNumbers, NumberOfUsers);
+	playing(name1, userTicket, num, winningNums, pare, NumberOfUsers);
 }
 
 void playerMenu()
@@ -136,31 +137,31 @@ void results(string name, int userTicket[], int winningNums[], int size, int &ma
 			break;
 		case 1:
 			cout << p2;
-			matchingNumbers = 1;
+			matchingNumbers = 0;
 			break;
 		case 2:
 			cout << p3;
-			matchingNumbers = 2;
+			matchingNumbers = 10;
 			break;
 		case 3:
 			cout << p4;
-			matchingNumbers = 3;
+			matchingNumbers = 300;
 			break;
 		case 4:
 			cout << p5;
-			matchingNumbers = 4;
+			matchingNumbers = 500;
 			break;
 		case 5:
 			cout << p6;
-			matchingNumbers = 5;
+			matchingNumbers = 5000;
 			break;
 		case 6:
 			cout << p7;
-			matchingNumbers = 6;
+			matchingNumbers = 100000;
 			break;
 		case 7:
 			cout << p8;
-			matchingNumbers = 7;
+			matchingNumbers = 1000000;
 			break;
 	}
 }
@@ -230,7 +231,8 @@ void LoadingScore(int &NumberOfUsers) {
 }
 
 void playing(string name1, int userTicket[], int num, int winningNums[], int matchingNumbers, int NumberOfUsers) {
-	while(true) {	
+	while(true) {
+		//system("cls");	
 		char choice;
 		playerMenu();
 		cin >> choice;
@@ -238,10 +240,10 @@ void playing(string name1, int userTicket[], int num, int winningNums[], int mat
 		if (choice == '1')
 		{
 			cout << "Molim unesite Vase ime i prezime: ";
-			cin >> name1;
+			cin.ignore();
 			getline(cin, name1);
 			cout << endl;
-
+			cout << name1;
 			getuserTicket(userTicket, num);
 			getwinningNumbers(winningNums, num);
 			cout << endl;
@@ -261,6 +263,7 @@ void playing(string name1, int userTicket[], int num, int winningNums[], int mat
 		else if (toupper(choice) == 'L')
 		{
 			cout << "Izabrali ste ucitat rezultat." << endl;
+			cout << "Ime \t\t Izbuceni brojevi\t Vasi brojevi \t Pare" << endl;
 			LoadingScore(NumberOfUsers);
 			for(int i = 0; i <= NumberOfUsers - 1; i++) {
 				cout << listofusers[i].name << "\t";
@@ -272,7 +275,7 @@ void playing(string name1, int userTicket[], int num, int winningNums[], int mat
 					cout << listofusers[i].userTicket[j] << " ";
 				}
 				cout << "\t";
-				cout << listofusers[i].matchingNumbers << " ";
+				cout << listofusers[i].matchingNumbers << "$";
 			cout << endl;
 			}
 		}
@@ -281,5 +284,6 @@ void playing(string name1, int userTicket[], int num, int winningNums[], int mat
 			cout << "Pogresan unos." << endl;
 			exit(EXIT_FAILURE);
 		}
+		system("pause");
 	}
 }
